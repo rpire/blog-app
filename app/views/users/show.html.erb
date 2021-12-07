@@ -1,2 +1,14 @@
-<h1>User Details</h1>
-<p>You will be able to see the details and the posts of a specific user.</p>
+<h1><%= @user.name %></h1>
+<p>Number of posts: <%= @user.posts_counter %></p>
+<h2>Bio</h2>
+<p><%= @user.bio %></p>
+<h2>Posts</h2>
+<ul>
+  <% @user.most_recent_posts.each do |post| %>
+    <li>
+      <h2>Title: <%= post.title %></h2>
+      <p><%= post.text %></p>
+      <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+    </li>
+  <% end %>
+</ul>

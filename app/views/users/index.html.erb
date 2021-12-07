@@ -1,2 +1,10 @@
 <h1>Users</h1>
 <p>You will be able to see the users listed here.</p>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <h2><%= user.name %></h2>
+      <p>Number of posts: <%= user.posts_counter %></p>
+    </li>
+  <% end %>
+</ul>
