@@ -1,2 +1,13 @@
-<h1>Post</h1>
-<p>You will be able to see the details of a post here.</p>
+<h1><%= @post.title %> by <%= @user.name %></h1>
+<p>Comments: <%= @post.comments_counter %>, Likes: <%= @post.likes_counter%></p>
+<p>
+  <%= @post.text %>
+</p>
+<h2>Comments</h2>
+<ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <%= comment.find_author %>: <%= comment.text %>
+    </li>
+  <% end %>
+</ul>

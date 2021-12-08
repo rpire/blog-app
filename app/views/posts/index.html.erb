@@ -1,2 +1,24 @@
-<h1>User's Posts</h1>
-<p>You will be able to see the posts from a specific user here.</p>
+<h1><%= @user.name %>'s Posts</h1>
+<p>Number of posts: <%= @user.posts_counter %></p>
+<h2>Posts</h2>
+<ul>
+  <li>
+    <% @posts.each do |post| %>
+    <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+      <h3><%= post.title %></h3>
+    </a>
+    <p>
+      <%= post.text %>
+    </p>
+    <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
+    <h3>Comments</h3>
+    <ul>
+      <% post.most_recent_comments.each do |comment| %>
+        <li>
+          <%= comment.find_author %>: <%= comment.text %>
+        </li>
+      <% end %>
+    </ul>
+    <% end %>
+  </li>
+</ul>

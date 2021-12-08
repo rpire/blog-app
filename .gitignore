@@ -38,3 +38,6 @@ yarn-debug.log*
 # Ignore Linter configuration files.
 .rubocop.yml
 .stylelintrc.json
+
+# Temporarily ignore spec/request/ folder.
+/spec/requests
