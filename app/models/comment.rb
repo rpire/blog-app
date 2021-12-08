@@ -3,6 +3,6 @@ class Comment < ApplicationRecord
   belongs_to :post, foreign_key: 'post_id'
 
   def find_author
-    User.find(self.author_id).name
+    User.find(author_id).name
   end
 end
