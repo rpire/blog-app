@@ -2,9 +2,8 @@
 <ul>
   <% @users.each do |user| %>
     <li>
-      <h2><%= user.name %></h2>
       <a href="/users/<%= user.id %>">
-        <%= user.name %>'s info
+        <h2><%= user.name %></h2>
       </a>
       <p>Number of posts: <%= user.posts_counter %></p>
     </li>

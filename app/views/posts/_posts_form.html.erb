@@ -1,0 +1,6 @@
+<h2>Create a new post</h2>
+<%= form_with model: @post do |form| %>
+  <%= form.text_field :title, placeholder: 'Title' %><br><br>
+  <%= form.text_area :text, placeholder: 'Content' %><br><br>
+  <%= form.submit 'Create post' %><br><br>
+<% end %>
