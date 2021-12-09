@@ -1,10 +1,9 @@
-<h1><%= @user.name %>'s Posts</h1>
-<p>Number of posts: <%= @user.posts_counter %></p>
+<%= render 'layouts/user_header' %>
 <h2>Posts</h2>
 <ul>
   <li>
     <% @posts.each do |post| %>
-    <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+    <a href="posts/<%= post.id %>">
       <h3><%= post.title %></h3>
     </a>
     <p>
@@ -22,3 +21,4 @@
     <% end %>
   </li>
 </ul>
+<%= render 'posts_form' %>

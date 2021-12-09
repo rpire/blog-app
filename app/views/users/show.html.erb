@@ -1,17 +1,18 @@
-<h1><%= @user.name %></h1>
-<p>Number of posts: <%= @user.posts_counter %></p>
+<%= render 'layouts/user_header' %>
 <h2>Bio</h2>
 <p><%= @user.bio %></p>
-<h2>Posts</h2>
+<h2><%= @user.name %>'s Posts</h2>
 <ul>
   <% @user.most_recent_posts.each do |post| %>
     <li>
-      <h2>Title: <%= post.title %></h2>
+      <a href="/users/<%= @user.id %>/posts/<%= post.id %>">
+        <h2>Title: <%= post.title %></h2>
+      </a>
       <p><%= post.text %></p>
       <p>Comments: <%= post.comments_counter %>, Likes: <%= post.likes_counter %></p>
     </li>
   <% end %>
 </ul>
 <a href="/users/<%= @user.id %>/posts">
-  <%= @user.name %>'s posts
+  All posts
 </a>
