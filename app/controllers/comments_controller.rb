@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @post.comments.create(comment_parameters.merge(author_id: current_user.id))
     @post.update_comments_counter
+    flash[:notice] = 'Comment posted!'
     redirect_back(fallback_location: root_path)
   end
 
