@@ -7,7 +7,7 @@
 <ul>
   <% @comments.each do |comment| %>
     <li>
-      <%= comment.find_author %>: <%= comment.text %>
+      <%= comment.user.name %>: <%= comment.text %>
     </li>
   <% end %>
 </ul>
