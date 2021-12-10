@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
   def index
     @user = current_user
-    @posts = Post.order(created_at: :desc)
+    @posts = Post.includes(:comments).order(created_at: :desc)
   end
 
   def show
     @post = Post.find(params[:id])
     @user = User.find(@post.author_id)
-    @comments = Comment.where(post_id: @post.id)
+    @comments = Comment.includes(:user).where(post_id: @post.id)
   end
 
   def create
@@ -18,7 +18,11 @@ class PostsController < ApplicationController
     new_post.text = params[:text]
     new_post.update_comments_counter
     new_post.update_likes_counter
-    new_post.save
+    if new_post.save
+      flash[:notice] = 'Post created successfully'
+    else
+      flash[:alert] = new_post.errors.full_messages.first
+    end
     @user.update_posts_counter
     redirect_back(fallback_location: root_path)
   end
