@@ -12,6 +12,8 @@
 
   <body>
     <h1>Welcome to The Blog App!</h1>
+    <%= notice %>
+    <%= alert %>
     <%= yield %>
     <% if user_signed_in? %>
 			<%= button_to t('sign_out'), destroy_user_session_path, method: :delete %>
