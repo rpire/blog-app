@@ -1,7 +1,0 @@
-<h2>New User</h2>
-<%= form_with model: @user do |form| %>
-  <%= form.text_field :name, placeholder: 'Name' %><br><br>
-  <%= form.text_field :photo, placeholder: 'Image link' %><br><br>
-  <%= form.text_area :bio, placeholder: 'Biography' %><br><br>
-  <%= form.submit 'Create user' %><br><br>
-<% end %>
