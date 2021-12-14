@@ -7,12 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <h1>Welcome to The Blog App!</h1>
+    <%= notice %>
+    <%= alert %>
     <%= yield %>
+    <% if user_signed_in? %>
+			<%= button_to t('sign_out'), destroy_user_session_path, method: :delete %>
+		<% end %>
     <footer>Thanks for using The Blog App!</footer>
   </body>
 </html>
