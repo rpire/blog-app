@@ -4,10 +4,6 @@ RSpec.describe User, type: :model do
   subject { User.new(name: 'Rubén Pire', posts_counter: 7) }
   before { subject.save }
 
-  it 'checks for a valid user entry' do
-    expect(subject).to be_valid
-  end
-
   it 'checks for the presence of "name"' do
     subject.name = nil
     expect(subject).to_not be_valid

@@ -31,6 +31,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
+  gem 'database_cleaner'
   gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
