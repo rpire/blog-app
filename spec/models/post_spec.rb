@@ -21,10 +21,6 @@ RSpec.describe Post, type: :model do
 
   before { subject.save }
 
-  it 'checks for a valid post entry' do
-    expect(subject).to be_valid
-  end
-
   it 'checks for the presence of "title"' do
     subject.title = nil
     expect(subject).to_not be_valid
